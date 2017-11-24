@@ -21,8 +21,11 @@ void setup() {
   Serial.begin(9600);           // start serial for output
   for (int i=0; i<2; i++){
         pinMode(ledPin[i], OUTPUT);
+  }
 }
-}
+
+/*
+*/
 void loop() {
   delay(100);
 
@@ -35,7 +38,8 @@ else if ( temperatureC <= 23 || temperatureC >= 24 ) {
   }  
 }
 
-
+/*
+*/
 void receiveEvent(int howMany) {
   while (1 < Wire.available()) { // loop through all but the last
     char c = Wire.read(); // receive byte as a character
@@ -46,4 +50,4 @@ void receiveEvent(int howMany) {
 
   int lightLevel = Wire.read();    // receive byte as an integer
   Serial.println(lightLevel);         // print the integer
-}​
+}
